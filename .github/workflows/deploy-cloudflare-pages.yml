@@ -35,4 +35,8 @@ jobs:
           echo "Deploying to Cloudflare Pages project: $(printenv PROJECT_NAME)"
 
       - name: Deploy to Cloudflare Pages
-        run: wrangler pages deploy . --project-name "$PROJECT_NAME" --branch "${{ github.ref_name }}"
+        run: |
+          set -e
+          echo "Using project name: $PROJECT_NAME"
+          wrangler pages deploy . --project-name "$PROJECT_NAME" --branch "${{ github.ref_name }}" 2>&1 | tee deploy.log
+          echo "Deployment completed"
