@@ -566,43 +566,16 @@
               </p>
             </div>
 
-            <!-- Video / thumbnail -->
+            <!-- Image / thumbnail -->
             <div class="flex-1 flex justify-center items-start">
               <div
                 class="relative w-full sm:w-3/4 lg:w-full aspect-video rounded overflow-hidden shadow-lg"
               >
-                <video
-                  src="public/images/aboutHytera/corporate_video_Innovate_for_a_safer_world_2024_hytera.mp4"
+                <img
+                  src="public/images/aboutHytera/about-hytera-desktop-intro-1.jpg_n.webp"
+                  alt="Hytera communications technology"
                   class="w-full h-full object-cover"
-                  muted
-                  loop
-                  playsinline
-                  preload="auto"
-                  tabindex="-1"
-                  aria-label="Hytera corporate video"
-                ></video>
-                <!-- Play overlay -->
-                <button
-                  class="absolute inset-0 flex items-center justify-center text-white/90 hover:text-white backdrop-blur-sm"
-                  aria-label="Play corporate video"
-                  id="playHyteraIntroVideo"
-                >
-                  <!-- FiPlay icon from React Icons -->
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="48"
-                    height="48"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="drop-shadow feather feather-play"
-                  >
-                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                  </svg>
-                </button>
+                />
               </div>
             </div>
           </div>
@@ -615,47 +588,7 @@
         </div>
       </div>
 
-      <!-- Modal for video -->
-      <div
-        id="introVideoModal"
-        class="fixed inset-0 z-50 hidden items-center justify-center"
-      >
-        <!-- Blur and dark overlay -->
-        <div
-          class="absolute inset-0 bg-black/60 backdrop-blur-sm"
-          id="closeIntroVideoModal"
-        ></div>
-        <!-- Modal content -->
-        <div class="relative z-10 w-full max-w-3xl">
-          <button
-            class="absolute top-2 right-2 text-white bg-black/70 rounded-full p-2 z-20"
-            id="closeIntroVideoBtn"
-            aria-label="Close video"
-          >
-            <!-- FiX icon from React Icons -->
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="feather feather-x"
-            >
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-          </button>
-          <video
-            src="public/images/aboutHytera/corporate_video_Innovate_for_a_safer_world_2024_hytera.mp4"
-            controls
-            class="w-full h-auto rounded-lg shadow-lg bg-black"
-          ></video>
-        </div>
-      </div>
+
     </section>
 
     <!-- Innovation Section -->
@@ -958,32 +891,14 @@
       id="hytera-manufacturing"
       class="max-w-6xl mx-auto px-4 py-16 flex flex-col lg:flex-row-reverse gap-10 lg:gap-16"
     >
-      <!-- Video thumbnail -->
-      <div
-        class="w-full lg:w-1/2 cursor-pointer"
-        id="manufacturingVideoThumbnail"
-      >
+      <!-- Image thumbnail -->
+      <div class="w-full lg:w-1/2">
         <div class="relative aspect-video rounded shadow-lg overflow-hidden">
           <img
             src="public/images/aboutHytera/respond-achieve.jpg_n.webp"
-            alt="Hytera Global video"
+            alt="Hytera Global manufacturing"
             class="w-full h-full object-cover"
           />
-          <!-- FiPlay icon from React Icons -->
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="56"
-            height="56"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="absolute inset-0 m-auto text-white drop-shadow filter hover:scale-110 transition-transform feather feather-play"
-          >
-            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-          </svg>
         </div>
       </div>
       <!-- Text -->
@@ -998,47 +913,7 @@
         </p>
       </div>
     </section>
-    <!-- Manufacturing Video Modal -->
-    <div
-      id="manufacturingVideoModal"
-      class="fixed inset-0 z-[1200] hidden items-center justify-center bg-black/60 backdrop-blur"
-    >
-      <div
-        class="relative w-[90%] md:w-[80%] lg:w-[60%] aspect-video"
-        onclick="event.stopPropagation();"
-      >
-        <iframe
-          id="manufacturingVideoFrame"
-          src=""
-          title="Hytera Manufacturing Center"
-          class="w-full h-full rounded shadow-lg"
-          allow="autoplay; encrypted-media"
-          allowfullscreen
-        ></iframe>
-        <button
-          id="closeManufacturingVideoBtn"
-          class="absolute -right-3 -top-3 bg-white rounded-full p-1 shadow hover:bg-gray-200"
-          aria-label="Close video"
-        >
-          <!-- FiX icon from React Icons -->
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="feather feather-x"
-          >
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-    </div>
+
     <!-- CSR Section -->
     <section
       id="hytera-csr"
@@ -1209,73 +1084,7 @@
     </section>
     <!-- JavaScript for interactive functionality -->
     <script>
-      // Intro Video Modal
-      const introVideo = document.getElementById("playHyteraIntroVideo");
-      const introVideoModal = document.getElementById("introVideoModal");
-      const closeIntroVideoModal = document.getElementById(
-        "closeIntroVideoModal"
-      );
-      const closeIntroVideoBtn = document.getElementById("closeIntroVideoBtn");
-
-      introVideo.addEventListener("click", () => {
-        introVideoModal.classList.remove("hidden");
-        introVideoModal.classList.add("flex");
-      });
-
-      const closeIntroModal = () => {
-        introVideoModal.classList.add("hidden");
-        introVideoModal.classList.remove("flex");
-        const video = introVideoModal.querySelector("video");
-        if (video) video.pause();
-      };
-
-      closeIntroVideoModal.addEventListener("click", closeIntroModal);
-      closeIntroVideoBtn.addEventListener("click", closeIntroModal);
-
-      // Manufacturing Video Modal
-      const manufacturingVideoThumbnail = document.getElementById(
-        "manufacturingVideoThumbnail"
-      );
-      const manufacturingVideoModal = document.getElementById(
-        "manufacturingVideoModal"
-      );
-      const manufacturingVideoFrame = document.getElementById(
-        "manufacturingVideoFrame"
-      );
-      const closeManufacturingVideoBtn = document.getElementById(
-        "closeManufacturingVideoBtn"
-      );
-
-      manufacturingVideoThumbnail.addEventListener("click", () => {
-        manufacturingVideoFrame.src =
-          "public/images/aboutHytera/corporate_video_Innovate_for_a_safer_world_2024_hytera.mp4";
-        manufacturingVideoModal.classList.remove("hidden");
-        manufacturingVideoModal.classList.add("flex");
-      });
-
-      const closeManufacturingModal = () => {
-        manufacturingVideoModal.classList.add("hidden");
-        manufacturingVideoModal.classList.remove("flex");
-        manufacturingVideoFrame.src = "";
-      };
-
-      closeManufacturingVideoBtn.addEventListener(
-        "click",
-        closeManufacturingModal
-      );
-      manufacturingVideoModal.addEventListener("click", (e) => {
-        if (e.target === manufacturingVideoModal) {
-          closeManufacturingModal();
-        }
-      });
-
-      // Close modals on Escape key
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-          closeIntroModal();
-          closeManufacturingModal();
-        }
-      });
+      // Lightweight page interactions can stay here if needed later.
     </script>
 
 <footer class="bg-[#1d1d1f] text-gray-300 text-sm pt-10 font-sans">
