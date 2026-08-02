@@ -1,3 +1,4 @@
-# Exclude large archive files from Wrangler static asset deployment
+# Exclude large archive files and oversized media from Wrangler static asset deployment
 *.zip
 Updates-V1.zip
+public/images/aboutHytera/corporate_video_Innovate_for_a_safer_world_2024_hytera.mp4
