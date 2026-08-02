@@ -1,0 +1,3 @@
+# Exclude large archive files from Wrangler static asset deployment
+*.zip
+Updates-V1.zip
