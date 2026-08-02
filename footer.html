@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer - Hytera</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font imports -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Footer component -->
+    <footer class="bg-[#1d1d1f] text-gray-300 text-sm pt-10 font-sans">
+        <div class="max-w-7xl mx-auto px-4">
+            <!-- Newsletter Row -->
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 pb-6 border-b border-gray-600">
+                <img src="public/images/footer/sitemap_logo.svg" alt="Hytera" class="h-12 w-auto">
+      
+                <form class="w-full md:w-auto flex gap-2">
+                    <input type="email" placeholder="Your Email Address*" class="flex-1 md:w-80 bg-[#2b2b2d] text-white placeholder-gray-400 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-[#96b41e]">
+                    <button type="submit" class="bg-[#96b41e] text-white px-5 py-2 rounded flex items-center gap-2 hover:brightness-110">
+                        Subscribe
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+      
+            <!-- Desktop 5‑column grid (hidden on < md) -->
+            <div class="hidden md:grid grid-cols-2 lg:grid-cols-5 gap-8 py-8">
+                <!-- About Hytera -->
+                <div>
+                    <h4 class="text-white font-semibold mb-3">About Hytera</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about_hytera.html#hytera-profile" class="hover:text-white">Hytera Profile</a></li>
+                        <li><a href="about_hytera.html#hytera-csr" class="hover:text-white">Hytera CSR</a></li>
+                        <li><a href="about_hytera.html#hytera-offices" class="hover:text-white">Hytera Offices</a></li>
+                        <li><a href="about_hytera.html#careers" class="hover:text-white">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Press Center -->
+                <div>
+                    <h4 class="text-white font-semibold mb-3">Press Center</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white">News</a></li>
+                        <li><a href="#" class="hover:text-white">Blog</a></li>
+                        <li><a href="#" class="hover:text-white">Event</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Partners -->
+                <div>
+                    <h4 class="text-white font-semibold mb-3">Partners</h4>
+                    <ul class="space-y-2">
+                        <li><a href="findDealer.html" class="hover:text-white">Find a Dealer</a></li>
+                        <li><a href="partner.html" class="hover:text-white">Become a Hytera Partner</a></li>
+                        <li><a href="#" class="hover:text-white">Partner Portal</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Support -->
+                <div>
+                    <h4 class="text-white font-semibold mb-3">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white">Find Service Center</a></li>
+                        <li><a href="service-product.html" class="hover:text-white">Service Products</a></li>
+                        <li><a href="solutions.html" class="hover:text-white">Service Solutions</a></li>
+                        <li><a href="#" class="hover:text-white">Training Courses</a></li>
+                        <li><a href="#" class="hover:text-white">Certification Lookup</a></li>
+                        <li><a href="#" class="hover:text-white">Declaration Documents</a></li>
+                        <li><a href="#" class="hover:text-white">Webinar Replay</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Social + App -->
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-white font-semibold mb-3">Follow Us:</h4>
+                        <div class="flex gap-4 text-xl">
+                            <a href="#" class="hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="hover:text-white"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="hover:text-white"><i class="fab fa-youtube"></i></a>
+                            <a href="#" class="hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-semibold mb-3">Download the Hytera App</h4>
+                        <div class="flex gap-3 bg-[#2b2b2d] p-2 rounded">
+                            <img src="public/images/footer/APPQR.png_n.webp" alt="QR" class="h-20 w-20 object-cover">
+                            <div class="text-xs leading-snug pt-1">
+                                <p class="font-semibold text-white mb-1">Hytera App</p>
+                                <p>Explore Hytera's product and solutions on app.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      
+            <!-- Mobile accordion (visible < md) -->
+            <div class="md:hidden py-6 space-y-4">
+                <!-- About Hytera -->
+                <details class="border-b border-gray-600 pb-2">
+                    <summary class="cursor-pointer flex justify-between items-center text-white font-semibold py-2">
+                        About Hytera
+                        <span class="text-xl">+</span>
+                    </summary>
+                    <ul class="mt-2 space-y-2 pl-2">
+                        <li><a href="about_hytera.html#hytera-profile" class="hover:text-white">Hytera Profile</a></li>
+                        <li><a href="about_hytera.html#hytera-csr" class="hover:text-white">Hytera CSR</a></li>
+                        <li><a href="about_hytera.html#hytera-offices" class="hover:text-white">Hytera Offices</a></li>
+                        <li><a href="about_hytera.html#careers" class="hover:text-white">Careers</a></li>
+                    </ul>
+                </details>
+                
+                <!-- Press Center -->
+                <details class="border-b border-gray-600 pb-2">
+                    <summary class="cursor-pointer flex justify-between items-center text-white font-semibold py-2">
+                        Press Center
+                        <span class="text-xl">+</span>
+                    </summary>
+                    <ul class="mt-2 space-y-2 pl-2">
+                        <li><a href="#" class="hover:text-white">News</a></li>
+                        <li><a href="#" class="hover:text-white">Blog</a></li>
+                        <li><a href="#" class="hover:text-white">Event</a></li>
+                    </ul>
+                </details>
+                
+                <!-- Partners -->
+                <details class="border-b border-gray-600 pb-2">
+                    <summary class="cursor-pointer flex justify-between items-center text-white font-semibold py-2">
+                        Partners
+                        <span class="text-xl">+</span>
+                    </summary>
+                    <ul class="mt-2 space-y-2 pl-2">
+                        <li><a href="findDealer.html" class="hover:text-white">Find a Dealer</a></li>
+                        <li><a href="partner.html" class="hover:text-white">Become a Hytera Partner</a></li>
+                        <li><a href="#" class="hover:text-white">Partner Portal</a></li>
+                    </ul>
+                </details>
+                
+                <!-- Support -->
+                <details class="border-b border-gray-600 pb-2">
+                    <summary class="cursor-pointer flex justify-between items-center text-white font-semibold py-2">
+                        Support
+                        <span class="text-xl">+</span>
+                    </summary>
+                    <ul class="mt-2 space-y-2 pl-2">
+                        <li><a href="#" class="hover:text-white">Find Service Center</a></li>
+                        <li><a href="service-product.html" class="hover:text-white">Service Products</a></li>
+                        <li><a href="solutions.html" class="hover:text-white">Service Solutions</a></li>
+                        <li><a href="#" class="hover:text-white">Training Courses</a></li>
+                        <li><a href="#" class="hover:text-white">Certification Lookup</a></li>
+                        <li><a href="#" class="hover:text-white">Declaration Documents</a></li>
+                        <li><a href="#" class="hover:text-white">Webinar Replay</a></li>
+                    </ul>
+                </details>
+      
+                <!-- Social icons -->
+                <div class="flex gap-6 text-2xl pt-4">
+                    <a href="#" class="hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="hover:text-white"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-white"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+      
+            <!-- Subsidiary brands (desktop only) -->
+            <div class="hidden md:flex border-t border-gray-600 px-0 py-6 flex-wrap items-center justify-center gap-24">
+                <span class="text-gray-300 text-base mr-8">Hytera Subsidiary Brands</span>
+                <img src="public/images/footer/en_hmf_logo.png_n.webp" alt="HMF" class="h-6 w-auto">
+                <img src="public/images/footer/sitemap_teletronic.svg" alt="Teltronic" class="h-6 w-auto">
+                <img src="public/images/footer/sitemap_norsat.svg" alt="Norsat" class="h-6 w-auto">
+                <img src="public/images/footer/sitemap_siqlair.svg" alt="Sinclair" class="h-6 w-auto">
+                <img src="public/images/footer/sitemap_hyt.svg" alt="HYT" class="h-6 w-auto">
+            </div>
+      
+            <!-- Bottom bar -->
+            <div class="border-t border-gray-600 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs">
+                <p>Copyright © 2025 Hytera Communications Corporation Limited.</p>
+                <div class="flex gap-4 flex-wrap md:justify-end">
+                    <a href="#" class="hover:text-white">Terms of Use</a>
+                    <a href="#" class="hover:text-white">Legal Notice</a>
+                    <a href="#" class="hover:text-white">Privacy Policy</a>
+                    <a href="#" class="hover:text-white">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+      </footer>
+      
+      <script>
+        // Add functionality for mobile accordions
+        document.querySelectorAll('details summary').forEach(summary => {
+            summary.addEventListener('click', () => {
+                const details = summary.parentNode;
+                const plusSign = summary.querySelector('span');
+                
+                // Change the plus to minus and vice versa
+                if (details.open) {
+                    plusSign.textContent = '+';
+                } else {
+                    plusSign.textContent = '-';
+                }
+            });
+        });
+      </script>
+</body>
+</html> 

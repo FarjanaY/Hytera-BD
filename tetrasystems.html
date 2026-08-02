@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tetra Systems</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HW1GPT8RY6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-HW1GPT8RY6');
+  </script>
+
+  <style>
+    /* Required for dropdown animation and hover delay */
+    .mega-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: opacity 0.3s, transform 0.3s, visibility 0s 0.3s;
+        }
+        .nav-item:hover .mega-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        
+        /* For mobile menu toggle animation */
+        .mobile-menu-details[open] summary span {
+            transform: rotate(45deg);
+        }
+    /* width of one card (%) = 100 / visibleCount (4)  */
+    .card-width   { flex: 0 0 25%;  }
+    /* smooth slide */
+    .track        { transition: transform .45s ease; }
+    /* arrow buttons */
+    .nav-btn      { @apply w-10 h-10 rounded-full flex items-center justify-center text-white; }
+    .nav-btn svg  { @apply w-5 h-5; }
+  </style>
+</head>
+<body class="bg-white text-gray-900">
+    <!-- Navbar component -->
+    <nav class="bg-white border-b shadow-sm sticky top-0 z-50">
+      <!-- Mobile Navbar -->
+      <div class="flex items-center justify-between px-4 py-2 lg:hidden w-full">
+          <!-- Hamburger -->
+          <button class="p-2" aria-label="Open menu" id="mobile-menu-btn">
+              <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+          </button>
+          <!-- Logo -->
+          <a href="index.html" class="flex-shrink-0 flex items-center">
+              <img src="assets/images/logo.svg" alt="Hytera" class="h-7">
+          </a>
+          <!-- HOW TO BUY button -->
+          <a href="/how-to-buy" class="border border-[#8ab71e] text-[#222] px-4 py-1 rounded-full text-xs font-semibold hover:bg-[#f5fbe9] transition">
+              HOW TO BUY
+          </a>
+      </div>
+
+      <!-- Desktop Navbar -->
+      <div class="max-w-7xl mx-auto px-4 py-3 items-center justify-center gap-8 hidden lg:flex">
+          <!-- Logo -->
+          <div class="flex-shrink-0 flex items-center mr-8">
+              <a href="index.html">
+                  <img src="assets/images/logo.svg" alt="Hytera" class="h-8">
+              </a>
+          </div>
+          
+          <!-- Nav Items Centered -->
+          <ul class="flex space-x-20 items-center justify-center flex-1">
+              <!-- Products dropdown -->
+              <li class="relative nav-item">
+                  <button class="font-[600] font-[Open Sans,sans-serif] text-[18px] transition duration-300 pb-1 hover:text-[#96b41e] nav-button">
+                      Products
+                  </button>
+                  <div class="mega-menu fixed left-0 right-0 top-[64px] w-screen bg-white shadow-lg z-50 border-t border-gray-200 py-10">
+                      <div class="max-w-7xl mx-auto px-8 flex">
+                          <!-- Left: Category List -->
+                          <div class="w-1/4 pr-8 border-r border-gray-200" id="product-categories">
+                              <!-- Will be populated by JS -->
+                          </div>
+                          <!-- Right: Product Grid -->
+                          <div class="w-3/4 pl-8 grid grid-cols-4 gap-8" id="product-grid">
+                              <!-- Will be populated by JS -->
+                          </div>
+                      </div>
+                  </div>
+              </li>
+
+             
+              <!-- Support dropdown -->
+              <li class="relative nav-item">
+                  <button class="font-[600] font-[Open Sans,sans-serif] text-[18px] transition duration-300 pb-1 hover:text-[#96b41e] nav-button">
+                      Support
+                  </button>
+                  <div class="mega-menu fixed left-0 right-0 top-[64px] w-screen bg-white shadow-lg z-50 border-t border-gray-200 py-10">
+                      <div class="max-w-7xl mx-auto grid grid-cols-3 gap-8 px-8">
+                          <div class="min-w-[200px]">
+                              <h3 class="font-[600] text-[18px] mb-3 text-gray-900">Service Products & Solutions</h3>
+                              <ul class="space-y-1 text-[16px] text-gray-700">
+                                  
+                                  <li><a href="service-product.html" class="block py-1 rounded transition text-[16px] hover:text-[#96b41e]">Service Products</a></li>
+                                  <li><a href="solutions.html" class="block py-1 rounded transition text-[16px] hover:text-[#96b41e]">Service Solutions</a></li>
+                              </ul>
+                              
+                              <h3 class="font-[600] text-[18px] mb-3 mt-6 text-gray-900">Warranty</h3>
+                              <ul class="space-y-1 text-[16px] text-gray-700">
+                                  <li><a href="/support/warranty-lookup" class="block py-1 rounded transition text-[16px] hover:text-[#96b41e]">Warranty Lookup</a></li>
+                              </ul>
+                          </div>
+                          
+                          
+
+              <!-- Partners dropdown -->
+              <li class="relative nav-item">
+                  <button class="font-[600] font-[Open Sans,sans-serif] text-[18px] transition duration-300 pb-1 hover:text-[#96b41e] nav-button">
+                      Partners
+                  </button>
+                  <div class="mega-menu fixed left-0 right-0 top-[64px] w-screen bg-white shadow-lg z-50 border-t border-gray-200 py-10">
+                      <div class="max-w-7xl mx-auto grid grid-cols-3 gap-8 px-8">
+                          <div class="min-w-[200px]">
+                              <h3 class="font-[600] text-[18px] mb-3 text-gray-900">Connect with a Hytera Partner</h3>
+                              <ul class="space-y-1 text-[16px] text-gray-700">
+                                  <li><a href="findDealer.html" class="block py-1 rounded transition text-[16px] text-black hover:text-[#96b41e]">Find a Distributor/Dealer</a></li>
+                              </ul>
+                          </div>
+                          
+                          <div class="min-w-[200px]">
+                              <h3 class="font-[600] text-[18px] mb-3 text-gray-900">Become a Hytera Partner</h3>
+                              <ul class="space-y-1 text-[16px] text-gray-700">
+                                  <li><a href="partner.html" class="block py-1 rounded transition text-[16px] hover:text-[#96b41e]">Apply Now</a></li>
+                              </ul>
+                          </div>
+                          
+                          
+                      </div>
+                  </div>
+              </li>
+
+              <!-- Press Center dropdown -->
+              
+
+              <!-- About Hytera dropdown -->
+              <li class="relative nav-item">
+                  <button class="font-[600] font-[Open Sans,sans-serif] text-[18px] transition duration-300 pb-1 hover:text-[#96b41e] nav-button">
+                      About Hytera
+                  </button>
+                  <div class="mega-menu fixed left-0 right-0 top-[64px] w-screen bg-white shadow-lg z-50 border-t border-gray-200 py-10">
+                      <div class="max-w-7xl mx-auto grid grid-cols-4 gap-8 px-8">
+                          <div class="min-w-[200px]">
+                              <h3 class="font-[600] text-[18px] mb-3 text-gray-900">About Hytera</h3>
+                              <ul class="space-y-1 text-[16px] text-gray-700">
+                                  <li><a href="about_hytera.html#hytera-profile" class="block py-1 rounded transition text-[16px] hover:text-[#96b41e]">Hytera Profile</a></li>
+                                  <li><a href="about_hytera.html#hytera-brand" class="block py-1 rounded transition text-[16px] hover:text-[#96b41e]">Hytera Brand</a></li>
+                                  <li><a href="about_hytera.html#hytera-manufacturing" class="block py-1 rounded transition text-[16px] hover:text-[#96b41e]">Hytera Manufacturing</a></li>
+                                  <li><a href="about_hytera.html#hytera-csr" class="block py-1 rounded transition text-[16px] hover:text-[#96b41e]">Hytera CSR</a></li>
+                                  <li><a href="about_hytera.html#hytera-history" class="block py-1 rounded transition text-[16px] hover:text-[#96b41e]">Hytera History</a></li>
+                              </ul>
+                          </div>
+                          
+                          <!-- <div class="min-w-[200px]">
+                              <h3 class="font-[600] text-[18px] mb-3 text-gray-900">Branding Campaigns</h3>
+                              <ul class="space-y-1 text-[16px] text-gray-700">
+                                  <li><a href="/about-hytera/innovate-for-a-safer-world" class="block py-1 rounded transition text-[16px] cursor-not-allowed">Innovate for a Safer World</a></li>
+                                  <li><a href="/about-hytera/global-exhibitions" class="block py-1 rounded transition text-[16px] cursor-not-allowed">Hytera Global Exhibitions</a></li>
+                                  <li><a href="/about-hytera/partner-summit" class="block py-1 rounded transition text-[16px] cursor-not-allowed">Global/Regional Partner Summit</a></li>
+                                  <li><a href="/about-hytera/30th-anniversary" class="block py-1 rounded transition text-[16px] cursor-not-allowed">2023:30th Anniversary</a></li>
+                              </ul>
+                          </div>
+                          
+                          <div class="min-w-[200px]">
+                              <h3 class="font-[600] text-[18px] mb-3 text-gray-900">Awards & Recognition</h3>
+                              <ul class="space-y-1 text-[16px] text-gray-700">
+                                  <li><a href="/about-hytera/international-critical-communications-awards" class="block py-1 rounded transition text-[16px] cursor-not-allowed">International Critical Communications Awards</a></li>
+                                  <li><a href="/about-hytera/industrial-design-awards" class="block py-1 rounded transition text-[16px] cursor-not-allowed">Industrial Design Awards</a></li>
+                              </ul>
+                          </div> -->
+                          
+                          <div class="min-w-[200px]">
+                              <h3 class="font-[600] text-[18px] mb-3 text-gray-900">About Hytera</h3>
+                              <ul class="space-y-1 text-[16px] text-gray-700">
+                                  <li><a href="/about-hytera/offices" class="block py-1 rounded transition text-[16px] hover:text-[#96b41e]">Hytera Offices</a></li>
+                                  <li><a href="contactus.html" class="block py-1 rounded transition text-[16px] hover:text-[#96b41e]">Subscribe</a></li>
+                                  
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </li>
+
+              <!-- Search icon -->
+              <li class="flex-shrink-0">
+                  <button aria-label="Search" class="p-1 rounded-full hover:bg-green-100 transition text-gray-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <circle cx="11" cy="11" r="8"></circle>
+                          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                      </svg>
+                  </button>
+              </li>
+
+              <!-- Contact Button -->
+              <li class="flex-shrink-0 ml-4">
+                  <a href="contactus.html" class="bg-[#96b41e] hover:bg-[#7a9417] text-white rounded-full px-5 py-1 text-[18px] font-[600] font-[Open Sans,sans-serif] transition">
+                      Contact Us
+                  </a>
+              </li>
+          </ul>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div class="lg:hidden border-t border-gray-200 bg-white px-4 py-4 space-y-3 hidden" id="mobile-menu">
+          <!-- Products -->
+          <details class="bg-gray-50 rounded shadow-sm mobile-menu-details">
+              <summary class="cursor-pointer font-semibold px-4 py-2 text-blue-900 flex justify-between items-center">
+                  Products
+                  <span class="text-xl">+</span>
+              </summary>
+              <div class="px-6 py-3 grid grid-cols-1 gap-3" id="mobile-products-list">
+                  <!-- Will be populated by JS -->
+              </div>
+          </details>
+
+          <!-- Industries -->
+          
+
+          <!-- Support -->
+          <details class="bg-gray-50 rounded shadow-sm mobile-menu-details">
+              <summary class="cursor-pointer font-semibold px-4 py-2 text-blue-900 flex justify-between items-center">
+                  Support
+                  <span class="text-xl">+</span>
+              </summary>
+              <div class="px-3 py-2">
+                  <h4 class="font-semibold mb-1 text-sm text-gray-700">Service Products & Solutions</h4>
+                  <ul class="text-sm space-y-1 ml-2 mb-3">
+                      <li><a href="service-product.html" class="block rounded px-2 py-1 hover:bg-green-100 transition">Service Products</a></li>
+                      <li><a href="solutions.html" class="block rounded px-2 py-1 hover:bg-green-100 transition">Service Solutions</a></li>
+                  </ul>
+                  
+                  
+                  
+                  <h4 class="font-semibold mb-1 text-sm text-gray-700">Warranty</h4>
+                  <ul class="text-sm space-y-1 ml-2 mb-3">
+                      <li><a href="#" class="block rounded px-2 py-1 hover:bg-green-100 transition">Warranty Lookup</a></li>
+                  </ul>
+              </div>
+          </details>
+          
+          <!-- Partners -->
+          <details class="bg-gray-50 rounded shadow-sm mobile-menu-details">
+              <summary class="cursor-pointer font-semibold px-4 py-2 text-blue-900 flex justify-between items-center">
+                  Partners
+                  <span class="text-xl">+</span>
+              </summary>
+              <div class="px-3 py-2">
+                  <h4 class="font-semibold mb-1 text-sm text-gray-700">Connect with a Hytera Partner</h4>
+                  <ul class="text-sm space-y-1 ml-2 mb-3">
+                      <li><a href="findDealer.html" class="block rounded px-2 py-1 hover:bg-green-100 transition">Find a Distributor/Dealer</a></li>
+                  </ul>
+                  
+                  <h4 class="font-semibold mb-1 text-sm text-gray-700">Become a Hytera Partner</h4>
+                  <ul class="text-sm space-y-1 ml-2 mb-3">
+                      <li><a href="partner.html" class="block rounded px-2 py-1 hover:bg-green-100 transition">Apply Now</a></li>
+                  </ul>
+                  
+                  <h4 class="font-semibold mb-1 text-sm text-gray-700">Partner Resources</h4>
+                  <ul class="text-sm space-y-1 ml-2">
+                      <li><a href="#" class="block rounded px-2 py-1 hover:bg-green-100 transition">Partner Portal</a></li>
+                  </ul>
+              </div>
+          </details>
+          
+          
+          <!-- About Hytera -->
+          <details class="bg-gray-50 rounded shadow-sm mobile-menu-details">
+              <summary class="cursor-pointer font-semibold px-4 py-2 text-blue-900 flex justify-between items-center">
+                  About Hytera
+                  <span class="text-xl">+</span>
+              </summary>
+              <div class="px-3 py-2">
+                  <!-- About submenus -->
+                  <h4 class="font-semibold mb-1 text-sm text-gray-700">About Hytera</h4>
+                  <ul class="text-sm space-y-1 ml-2 mb-3">
+                      <li><a href="/about-hytera#hytera-profile" class="block rounded px-2 py-1 hover:bg-green-100 transition">Hytera Profile</a></li>
+                      <li><a href="/about-hytera#hytera-brand" class="block rounded px-2 py-1 hover:bg-green-100 transition">Hytera Brand</a></li>
+                      <li><a href="/about-hytera#hytera-manufacturing" class="block rounded px-2 py-1 hover:bg-green-100 transition">Hytera Manufacturing</a></li>
+                      <li><a href="/about-hytera#hytera-csr" class="block rounded px-2 py-1 hover:bg-green-100 transition">Hytera CSR</a></li>
+                      <li><a href="/about-hytera#hytera-history" class="block rounded px-2 py-1 hover:bg-green-100 transition">Hytera History</a></li>
+                  </ul>
+                  
+                  <!-- More about submenus -->
+                  
+              </div>
+          </details>
+
+          <!-- Mobile Contact Button -->
+          <button class="w-full bg-[#96b41e] hover:bg-[#7a9417] text-white rounded-full px-5 py-2 text-sm font-semibold transition mt-4" type="button">
+              CONTACT HYTERA
+          </button>
+      </div>
+  </nav>
+
+  <script>
+      // Product categories data
+      const productCategories = [
+          {
+              name: "Two-way Radio Solutions",
+              products: [
+                  {
+                      label: "DMR Two-way Radios",
+                      img: "public/images/dmr-menu.png_n.webp",
+                      link: "twowaydmr.html"
+                  },
+                  {
+                      label: "DMR Repeaters & Systems",
+                      img: "public/images/dmr-system-menu.png_n.webp",
+                      link: "dmrRepeater.html"
+                  },
+                  {
+                      label: "TETRA Radios",
+                      img: "public/images/tetra-radio-menu.png_n.webp",
+                      link: "tetraradios.html"
+                  },
+                  {
+                      label: "TETRA Systems",
+                      img: "public/images/tetra-system-menu.png_n.webp",
+                      link: "tetrasystems.html"
+                  },
+                  {
+                      label: "Intrinsically Safe Radios",
+                      img: "public/images/IS-radio-menu.png_n.webp",
+                      link: "intrinsicallysaferadios.html"
+                  },
+                  {
+                      label: "S Series Business Radios",
+                      img: "public/images/s-series-business-radios-menu.png",
+                      link: "s-series-business-radios.html"
+                  }
+              ]
+          },
+          {
+              name: "MCS & PoC Radio Solutions",
+              products: [
+                  {
+                      label: "PoC Radios",
+                      img: "public/images/poc-radios-menu.png_n.webp",
+                      link: "pocradios.html"
+                  },
+                  {
+                      label: "MCS Devices",
+                      img: "public/images/mcs-devices-menu.png_n.webp",
+                      link: "MCS.html"
+                  },
+                  {
+                      label: "Dual-mode Rugged Radios",
+                      img: "public/images/dual-mode-rugged-radios-menu.png_n.webp",
+                      link: "dualmoderugged.html"
+                  },
+                  {
+                      label: "Multimedia Communication Platform",
+                      img: "public/images/multimedia-communication-platform-menu.png_n.webp",
+                      link: "multimideacommplatform.html"
+                  }
+              ]
+          },
+          {
+              name: "Body Camera Solutions",
+              products: [
+                  {
+                      label: "Body Cameras",
+                      img: "public/images/body-cameras-menu.png_n.webp",
+                      link: "bodycamera.html"
+                  },
+                  {
+                      label: "Docking Station",
+                      img: "public/images/docking-station-menu.png_n.webp",
+                      link: "IDS.html"
+                  },
+                  {
+                      label: "Digital Evidence Management (DEM)",
+                      img: "public/images/digital-evidence-management-menu.png_n.webp",
+                      link: "digitalevidence.html"
+                  }
+              ]
+          }
+          // Add more categories as needed
+      ];
+
+      // Toggle mobile menu
+      document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+          const mobileMenu = document.getElementById('mobile-menu');
+          mobileMenu.classList.toggle('hidden');
+      });
+      
+      // Handle mobile menu accordions
+      document.querySelectorAll('.mobile-menu-details summary').forEach(summary => {
+          summary.addEventListener('click', () => {
+              const details = summary.parentNode;
+              const plusSign = summary.querySelector('span');
+              
+              // Set timeout to change the plus/minus sign after the open/close animation
+              setTimeout(() => {
+                  plusSign.textContent = details.open ? '-' : '+';
+              }, 100);
+          });
+      });
+
+      // Initialize product categories
+      const categoriesContainer = document.getElementById('product-categories');
+      const productGrid = document.getElementById('product-grid');
+      const mobileProductsList = document.getElementById('mobile-products-list');
+      
+      // Populate desktop product categories
+      let categoriesHTML = '';
+      productCategories.forEach((category, index) => {
+          const activeClass = index === 0 ? 'bg-[#eaf5c8]' : 'hover:bg-[#f2f3f5]';
+          categoriesHTML += `
+              <div class="cursor-pointer py-1 rounded mb-1 font-[Open Sans,sans-serif] text-[16px] transition-all pl-4 ${activeClass} category-item" 
+                   data-index="${index}">
+                  ${category.name}
+              </div>
+          `;
+      });
+      categoriesContainer.innerHTML = categoriesHTML;
+      
+      // Display first category products initially
+      displayProductCategory(0);
+      
+      // Populate mobile products list
+      let mobileProductsHTML = '';
+      productCategories.forEach(category => {
+          mobileProductsHTML += `
+              <div class="min-w-[200px]">
+                  <h4 class="font-semibold mb-1 text-sm text-gray-700">${category.name}</h4>
+                  <ul class="text-sm space-y-1 ml-2 mb-3">
+                      ${category.products.map(prod => `
+                          <li>
+                              <a href="${prod.link}" class="block rounded px-2 py-1 hover:bg-green-100 transition">
+                                  ${prod.label} ${prod.badge ? `<span class="text-xs bg-green-200 text-green-800 rounded px-1 ml-1">${prod.badge}</span>` : ''}
+                              </a>
+                          </li>
+                      `).join('')}
+                  </ul>
+              </div>
+          `;
+      });
+      mobileProductsList.innerHTML = mobileProductsHTML;
+      
+      // Add event listeners to category items
+      document.querySelectorAll('.category-item').forEach(item => {
+          item.addEventListener('mouseenter', function() {
+              const index = parseInt(this.dataset.index);
+              
+              // Remove active class from all categories
+              document.querySelectorAll('.category-item').forEach(cat => {
+                  cat.classList.remove('bg-[#eaf5c8]');
+                  cat.classList.add('hover:bg-[#f2f3f5]');
+              });
+              
+              // Add active class to current category
+              this.classList.add('bg-[#eaf5c8]');
+              this.classList.remove('hover:bg-[#f2f3f5]');
+              
+              // Display products for this category
+              displayProductCategory(index);
+          });
+      });
+      
+      // Function to display products for a specific category
+      function displayProductCategory(index) {
+          const category = productCategories[index];
+          let productsHTML = '';
+          
+          category.products.forEach(product => {
+              productsHTML += `
+                  <a href="${product.link}" class="block py-1 rounded transition text-[16px] flex flex-col items-center text-center cursor-pointer hover:bg-[#eaf5c8] hover:text-[#96b41e]">
+                      <img src="${product.img}" alt="${product.label}" class="h-20 mb-2 object-contain">
+                      <span class="text-[18px] font-[600] font-[Open Sans,sans-serif] text-gray-900">${product.label}</span>
+                      ${product.badge ? `<span class="text-xs bg-green-200 text-green-800 rounded px-1 mt-1">${product.badge}</span>` : ''}
+                  </a>
+              `;
+          });
+          
+          productGrid.innerHTML = productsHTML;
+      }
+      
+      // Track hover state for nav buttons to add active state styling
+      document.querySelectorAll('.nav-button').forEach((button, index) => {
+          button.addEventListener('mouseenter', () => {
+              button.classList.add('text-[#96b41e]', 'border-b-2', 'border-[#96b41e]');
+          });
+          
+          // When hovering out of the item (not the dropdown)
+          button.addEventListener('mouseleave', (e) => {
+              // Check if we're not hovering the mega menu
+              if (!e.relatedTarget || !e.relatedTarget.closest('.mega-menu')) {
+                  button.classList.remove('text-[#96b41e]', 'border-b-2', 'border-[#96b41e]');
+              }
+          });
+          
+          // The parent nav-item might also need this behavior
+          const navItem = button.closest('.nav-item');
+          navItem.addEventListener('mouseleave', () => {
+              button.classList.remove('text-[#96b41e]', 'border-b-2', 'border-[#96b41e]');
+          });
+      });
+  </script>
+
+
+    <!-- Hero Section -->
+    <section class="relative mb-4 pt-20 pb-24 px-6 sm:px-16 overflow-hidden" style="height: 90vh;">
+        <!-- Background image -->
+        <img src="assets/images/TS1.webp" alt="DMR Radios" class="absolute inset-0 w-full h-full object-cover z-0" />
+      
+        <!-- Optional: dark overlay to improve text contrast -->
+        <div class="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
+      
+        <!-- Content -->
+        <div class="relative z-20 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8">
+          <div class="flex-1 max-w-xl text-white pt-20">
+            <h1 class="text-4xl font-bold mb-4 leading-tight pt-20">TETRA Systems</h1>
+            <p class="mb-6 text-lg">
+                MISSION-CRITICAL COMMUNICATION    
+            </p>
+            <div class="flex gap-4">
+              
+              <button class="bg-white text-gray-900 rounded-full px-5 py-3 font-semibold border border-gray-300 hover:bg-gray-100 hover:text-lime-700 transition">
+                ENQUIRY
+              </button>
+            </div>
+        </div>
+        </div>
+      </section>
+    
+      <!-- Section 2 -->
+      <section class="max-w-full mx-auto px-6 py-10 text-center">
+        <h2 class="text-4xl font-semibold mb-6">TETRA System</h2>
+        <p class="text-gray-700 text-md text-center max-w-5xl mx-auto leading-relaxed">
+            Hytera's TETRA System provide powerful reliability when you need it most, and our radios offer an expansive feature list compliant with the ETSI TETRA open standard, managed through our impressive applications. Discover how we can provide your TETRA infrastructure today to deliver mission-critical communications.    
+        </p>
+      </section>
+
+      <main class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-16 space-y-24">
+
+        <!-- Section 1: DMR Tier III -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+          <div>
+            <img src="assets/images/TS2.webp" alt="AD TETRA" class="w-full h-25" />
+          </div>
+          <div>
+            <h2 class="text-2xl font-semibold mb-4">Secure and Resilient</h2>
+            <p class="text-gray-700 leading-relaxed">
+                TETRA encryption (E2EE and AIE) and authentication, combined with excellent voice quality thanks to digital TETRA technology, ensures every communication is transmitted clearly and securely. Intelligent redundancy functions provides maximum system reliability.            </p>
+          </div>
+        
+        
+          <div class="order-2 md:order-1">
+            <h2 class="text-2xl font-semibold mb-4">TETRA System Scalability</h2>
+            <p class="text-gray-700 leading-relaxed">
+                Hytera TETRA ACCESSNET®-T IP can be scaled to grow in line with your user demands, from single-cell systems to nationwide networks.
+            </p>
+          </div>
+          <div class="order-1 md:order-2">
+            <img src="assets/images/TS3.webp" alt="XPT System" class="w-full h-25" />
+          </div>  
+
+        </section>
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+            <div>
+              <img src="assets/images/TS4.webp" alt="AD TETRA" class="w-full h-25" />
+            </div>
+            <div>
+              <h2 class="text-2xl font-semibold mb-4">Utilise Existing IP Infrastructure</h2>
+              <p class="text-gray-700 leading-relaxed">
+                The IP-based connectivity of the individual network elements allows you to use existing IP infrastructure, which makes extra transmission links superfluous and saves on cost. Make use of high-grade IP networks for voice communication that may already exist at many sites.    
+            </p>
+            </div>
+            <div class="order-2 md:order-1">
+                <h2 class="text-2xl font-semibold mb-4">Network Architecture Designed for Flexibility</h2>
+                <p class="text-gray-700 leading-relaxed">
+                    Centralized or decentralized network topologies offer flexibility in your network design and adaptation, while the flexible distribution of gateways is possible across all nodes, ensuring the system is configured to your individual requirements.    
+                </p>
+              </div>
+              <div class="order-1 md:order-2">
+                <img src="assets/images/TS5.webp" alt="XPT System" class="w-full h-25" />
+              </div>  
+        </section>
+    
+      </main>
+      
+      <section class="py-20">
+        <h2 class="text-3xl font-semibold text-center mb-12">Related Products</h2>
+      
+        <!-- slider wrapper -->
+        <div class="relative max-w-6xl mx-auto">
+      
+          <!-- track viewport -->
+          <div id="viewport" class="overflow-hidden">
+            <!-- track -->
+            <ul id="track" class="track flex">
+      
+              <!-- card 1 -->
+              <li class="card-width px-4 text-center">
+                <img src="assets/images/TSS1.webp" class="mx-auto mb-4" alt="" style="height: 250px;">
+                <h3 class="font-semibold">TETRA iBS</h3>
+                <p class="text-sm text-gray-600">Integrated TETRA Base Station</p>
+              </li>
+      
+              <!-- card 2 -->
+              <li class="card-width px-4 text-center">
+                <img src="assets/images/TSS2.webp" class="mx-auto mb-4" alt="" style="height: 250px;">
+                <h3 class="font-semibold">DIB-R5 outdoor</h3>
+                <p class="text-sm text-gray-600">TETRA Base Station</p>
+              </li>
+      
+              <!-- card 3 -->
+              <li class="card-width px-4 text-center">
+                <img src="assets/images/TSS3.webp" class="mx-auto mb-4" alt="" style="height: 250px;">
+                <h3 class="font-semibold">DIB-R5 Advanced</h3>
+                <p class="text-sm text-gray-600">TETRA Base Station</p>
+              </li>
+      
+              <!-- card 4 -->
+              <li class="card-width px-4 text-center">
+                <img src="assets/images/TSS4.webp" class="mx-auto mb-4" alt="" style="height: 250px;">
+                <h3 class="font-semibold">DIB-R5 Compact</h3>
+                <p class="text-sm text-gray-600">TETRA Base Station</p>
+              </li>
+      
+              <!-- --- extra 4 cards --- -->
+              <li class="card-width px-4 text-center">
+                <img src="assets/images/TSS5.webp" class="mx-auto mb-4" alt="" style="height: 250px;">
+                <h3 class="font-semibold">DIB-R5 Lite</h3>
+                <p class="text-sm text-gray-600">TETRA Base Station</p>
+              </li>
+      
+              <li class="card-width px-4 text-center">
+                <img src="assets/images/TSS6.webp" class="mx-auto mb-4" alt="" style="height: 250px;">
+                <h3 class="font-semibold">TMO-100</h3>
+                <p class="text-sm text-gray-600">TETRA Mobile Radio</p>
+              </li>
+      
+              <li class="card-width px-4 text-center">
+                <img src="assets/images/TSS7.webp" class="mx-auto mb-4" alt="" style="height: 250px;">
+                <h3 class="font-semibold">TM-800</h3>
+                <p class="text-sm text-gray-600">TETRA Mobile Radio</p>
+              </li>
+      
+              <li class="card-width px-4 text-center">
+                <img src="assets/images/TSS8.webp" class="mx-auto mb-4" alt="" style="height: 250px;">
+                <h3 class="font-semibold">Z1p Portable</h3>
+                <p class="text-sm text-gray-600">TETRA Handheld</p>
+              </li>
+            </ul>
+          </div>
+      
+          <!-- nav buttons -->
+          <button id="prev"
+                  class="nav-btn absolute -left-16 top-1/2 -translate-y-1/2 bg-gray-400/70 hover:bg-gray-500 hidden lg:flex">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+      
+          <button id="next"
+                  class="nav-btn absolute -right-16 top-1/2 -translate-y-1/2 bg-[#86bc24] hover:bg-[#6a951c] hidden lg:flex">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </section>
+      <section class=" px-6 sm:px-8 lg:px-12 bg-gray-100">
+        <h2 class="text-3xl font-semibold text-center mb-12 pt-6">Case Studies</h2>
+      
+        <!-- Featured Case Study -->
+        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 bg-white p-6 mb-4">
+          <img src="assets/images/TS6.webp" alt="Featured Case Study" class="object-cover w-full h-full" />
+          <div class="flex flex-col justify-center">
+            <h3 class="text-lg font-semibold mb-4">
+                Hytera TETRA System Improve Service Levels of Philippine National Railways
+            </h3>
+            <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                Hytera replaced an out-of-date analog communications system with a new digital TETRA network to improve voice quality and coverage on a commuter rail project in the...
+                <a href="#" class="text-green-600 font-semibold hover:underline text-sm">Read More &gt;</a>
+          </div>
+        </div>
+      
+        <!-- Other Case Studies -->
+        <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4 pb-4">
+          <div class="bg-white p-4">
+            <img src="assets/images/TS7.webp" alt="Case Study 1" class="mb-4 object-cover w-full h-40" />
+            <h4 class="mb-2 text-md">
+                Hytera TETRA System Ensures Safe and Smooth Running of SCO 2021 Summit in
+            </h4>
+            <a href="#" class="text-green-600 font-semibold hover:underline text-xs">Read More &gt;</a>
+          </div>
+          <div class="bg-white p-4">
+            <img src="assets/images/TS8.webp" alt="Case Study 2" class="mb-4 object-cover w-full h-40" />
+            <h4 class="mb-2 text-md">
+                Hytera Delivers Innovative TETRA Voice and Data Solution for Kazakhstan Railways
+            </h4>
+            <a href="#" class="text-green-600 font-semibold hover:underline text-xs">Read More &gt;</a>
+          </div>
+      </section>
+
+      <section class="bg-[url('assets/images/wmap.png')] bg-cover bg-center"  style="height: 40vh;">
+        <div class="text-center">
+        <h2 class="text-black text-4xl pt-20 pb-10">
+            Want to Learn More About Hytera Products and Solutions?
+        </h2>
+        <button class="bg-lime-600 text-white font-bold px-6 py-3 rounded hover:bg-lime-700 transition">
+            Contact Us
+        </button>
+        </div>
+      
+      </section>
+
+
+      <script>
+        // ------- simple carousel -------
+        const visible = 4;            // cards visible at once
+        const loop    = true;         // infinite looping
+        const track   = document.getElementById('track');
+        const cards   = track.children.length;
+        let   index   = 0;
+      
+        function update() {
+          track.style.transform = `translateX(-${index * 25}%)`; // 25% = 100 / visible
+        }
+      
+        document.getElementById('next').onclick = () => {
+          index = loop ? (index + 1) % (cards - visible + 1) : Math.min(index + 1, cards - visible);
+          update();
+        };
+        document.getElementById('prev').onclick = () => {
+          index = loop ? (index - 1 + (cards - visible + 1)) % (cards - visible + 1)
+                       : Math.max(index - 1, 0);
+          update();
+        };
+      </script>
+
+<footer class="bg-[#1d1d1f] text-gray-300 text-sm pt-10 font-sans">
+  <div class="max-w-7xl mx-auto px-4">
+      <!-- Newsletter Row -->
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 pb-6 border-b border-gray-600">
+          <img src="public/images/footer/sitemap_logo.svg" alt="Hytera" class="h-12 w-auto">
+
+          <form class="w-full md:w-auto flex gap-2">
+              <input type="email" placeholder="Your Email Address*" class="flex-1 md:w-80 bg-[#2b2b2d] text-white placeholder-gray-400 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-[#96b41e]">
+              <button type="submit" class="bg-[#96b41e] text-white px-5 py-2 rounded flex items-center gap-2 hover:brightness-110">
+                  Subscribe
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+              </button>
+          </form>
+      </div>
+
+      <!-- Desktop 5‑column grid (hidden on < md) -->
+      <div class="hidden md:grid grid-cols-2 lg:grid-cols-5 gap-8 py-8">
+          <!-- About Hytera -->
+          <div>
+              <h4 class="text-white font-semibold mb-3">About Hytera</h4>
+              <ul class="space-y-2">
+                  <li><a href="about_hytera.html#hytera-profile" class="hover:text-white">Hytera Profile</a></li>
+                  <li><a href="about_hytera.html#hytera-csr" class="hover:text-white">Hytera CSR</a></li>
+                  <li><a href="about_hytera.html#hytera-offices" class="hover:text-white">Hytera Offices</a></li>
+                  <li><a href="about_hytera.html#careers" class="hover:text-white">Careers</a></li>
+              </ul>
+          </div>
+          
+          <!-- Press Center -->
+          <div>
+              <h4 class="text-white font-semibold mb-3">Press Center</h4>
+              <ul class="space-y-2">
+                  <li><a href="#" class="hover:text-white">News</a></li>
+                  <li><a href="#" class="hover:text-white">Blog</a></li>
+                  <li><a href="#" class="hover:text-white">Event</a></li>
+              </ul>
+          </div>
+          
+          <!-- Partners -->
+          <div>
+              <h4 class="text-white font-semibold mb-3">Partners</h4>
+              <ul class="space-y-2">
+                  <li><a href="findDealer.html" class="hover:text-white">Find a Dealer</a></li>
+                  <li><a href="partner.html" class="hover:text-white">Become a Hytera Partner</a></li>
+                  <li><a href="#" class="hover:text-white">Partner Portal</a></li>
+              </ul>
+          </div>
+          
+          <!-- Support -->
+          <div>
+              <h4 class="text-white font-semibold mb-3">Support</h4>
+              <ul class="space-y-2">
+                  <li><a href="#" class="hover:text-white">Find Service Center</a></li>
+                  <li><a href="service-product.html" class="hover:text-white">Service Products</a></li>
+                  <li><a href="solutions.html" class="hover:text-white">Service Solutions</a></li>
+                  <li><a href="#" class="hover:text-white">Training Courses</a></li>
+                  <li><a href="#" class="hover:text-white">Certification Lookup</a></li>
+                  <li><a href="#" class="hover:text-white">Declaration Documents</a></li>
+                  <li><a href="#" class="hover:text-white">Webinar Replay</a></li>
+              </ul>
+          </div>
+          
+          <!-- Social + App -->
+          <div class="space-y-6">
+              <div>
+                  <h4 class="text-white font-semibold mb-3">Follow Us:</h4>
+                  <div class="flex gap-4 text-xl">
+                      <a href="#" class="hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                      <a href="#" class="hover:text-white"><i class="fab fa-instagram"></i></a>
+                      <a href="#" class="hover:text-white"><i class="fab fa-youtube"></i></a>
+                      <a href="#" class="hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                  </div>
+              </div>
+              <div>
+                  <h4 class="text-white font-semibold mb-3">Download the Hytera App</h4>
+                  <div class="flex gap-3 bg-[#2b2b2d] p-2 rounded">
+                      <img src="public/images/footer/APPQR.png_n.webp" alt="QR" class="h-20 w-20 object-cover">
+                      <div class="text-xs leading-snug pt-1">
+                          <p class="font-semibold text-white mb-1">Hytera App</p>
+                          <p>Explore Hytera's product and solutions on app.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Mobile accordion (visible < md) -->
+      <div class="md:hidden py-6 space-y-4">
+          <!-- About Hytera -->
+          <details class="border-b border-gray-600 pb-2">
+              <summary class="cursor-pointer flex justify-between items-center text-white font-semibold py-2">
+                  About Hytera
+                  <span class="text-xl">+</span>
+              </summary>
+              <ul class="mt-2 space-y-2 pl-2">
+                  <li><a href="about_hytera.html#hytera-profile" class="hover:text-white">Hytera Profile</a></li>
+                  <li><a href="about_hytera.html#hytera-csr" class="hover:text-white">Hytera CSR</a></li>
+                  <li><a href="about_hytera.html#hytera-offices" class="hover:text-white">Hytera Offices</a></li>
+                  <li><a href="about_hytera.html#careers" class="hover:text-white">Careers</a></li>
+              </ul>
+          </details>
+          
+          <!-- Press Center -->
+          <details class="border-b border-gray-600 pb-2">
+              <summary class="cursor-pointer flex justify-between items-center text-white font-semibold py-2">
+                  Press Center
+                  <span class="text-xl">+</span>
+              </summary>
+              <ul class="mt-2 space-y-2 pl-2">
+                  <li><a href="#" class="hover:text-white">News</a></li>
+                  <li><a href="#" class="hover:text-white">Blog</a></li>
+                  <li><a href="#" class="hover:text-white">Event</a></li>
+              </ul>
+          </details>
+          
+          <!-- Partners -->
+          <details class="border-b border-gray-600 pb-2">
+              <summary class="cursor-pointer flex justify-between items-center text-white font-semibold py-2">
+                  Partners
+                  <span class="text-xl">+</span>
+              </summary>
+              <ul class="mt-2 space-y-2 pl-2">
+                  <li><a href="findDealer.html" class="hover:text-white">Find a Dealer</a></li>
+                  <li><a href="partner.html" class="hover:text-white">Become a Hytera Partner</a></li>
+                  <li><a href="#" class="hover:text-white">Partner Portal</a></li>
+              </ul>
+          </details>
+          
+          <!-- Support -->
+          <details class="border-b border-gray-600 pb-2">
+              <summary class="cursor-pointer flex justify-between items-center text-white font-semibold py-2">
+                  Support
+                  <span class="text-xl">+</span>
+              </summary>
+              <ul class="mt-2 space-y-2 pl-2">
+                  <li><a href="#" class="hover:text-white">Find Service Center</a></li>
+                  <li><a href="service-product.html" class="hover:text-white">Service Products</a></li>
+                  <li><a href="solutions.html" class="hover:text-white">Service Solutions</a></li>
+                  <li><a href="#" class="hover:text-white">Training Courses</a></li>
+                  <li><a href="#" class="hover:text-white">Certification Lookup</a></li>
+                  <li><a href="#" class="hover:text-white">Declaration Documents</a></li>
+                  <li><a href="#" class="hover:text-white">Webinar Replay</a></li>
+              </ul>
+          </details>
+
+          <!-- Social icons -->
+          <div class="flex gap-6 text-2xl pt-4">
+              <a href="#" class="hover:text-white"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="hover:text-white"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="hover:text-white"><i class="fab fa-youtube"></i></a>
+              <a href="#" class="hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+      </div>
+
+      <!-- Subsidiary brands (desktop only) -->
+      <div class="hidden md:flex border-t border-gray-600 px-0 py-6 flex-wrap items-center justify-center gap-24">
+          <span class="text-gray-300 text-base mr-8">Hytera Subsidiary Brands</span>
+          <img src="public/images/footer/en_hmf_logo.png_n.webp" alt="HMF" class="h-6 w-auto">
+          <img src="public/images/footer/sitemap_teletronic.svg" alt="Teltronic" class="h-6 w-auto">
+          <img src="public/images/footer/sitemap_norsat.svg" alt="Norsat" class="h-6 w-auto">
+          <img src="public/images/footer/sitemap_siqlair.svg" alt="Sinclair" class="h-6 w-auto">
+          <img src="public/images/footer/sitemap_hyt.svg" alt="HYT" class="h-6 w-auto">
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="border-t border-gray-600 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs">
+          <p>Copyright © 2025 Hytera Communications Corporation Limited.</p>
+          <div class="flex gap-4 flex-wrap md:justify-end">
+              <a href="#" class="hover:text-white">Terms of Use</a>
+              <a href="#" class="hover:text-white">Legal Notice</a>
+              <a href="#" class="hover:text-white">Privacy Policy</a>
+              <a href="#" class="hover:text-white">Cookie Policy</a>
+          </div>
+      </div>
+  </div>
+</footer>
+
+<script>
+  // Add functionality for mobile accordions
+  document.querySelectorAll('details summary').forEach(summary => {
+      summary.addEventListener('click', () => {
+          const details = summary.parentNode;
+          const plusSign = summary.querySelector('span');
+          
+          // Change the plus to minus and vice versa
+          if (details.open) {
+              plusSign.textContent = '+';
+          } else {
+              plusSign.textContent = '-';
+          }
+      });
+  });
+</script>
+
+</body>
+</html>

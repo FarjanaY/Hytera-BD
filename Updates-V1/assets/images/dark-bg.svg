@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1440px" height="230px" viewBox="0 0 1440 230" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Group - Hytera</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="1440" height="230"></rect>
+        <polygon id="path-3" points="0.00731766624 0.147098773 1445.40983 0.147098773 1445.40983 218.976341 0.00731766624 218.976341"></polygon>
+        <polygon id="path-5" points="0.00325249264 0.744040336 1440.91441 0.744040336 1440.91441 276 0.00325249264 276"></polygon>
+    </defs>
+    <g id="New-CTA-strip-designs-1A" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="strip-option-Dark-Blue">
+            <g id="Group">
+                <rect id="Rectangle-4" fill="#002231" x="0" y="0" width="1440" height="230"></rect>
+                <g id="Bitmap" transform="translate(0.000000, 1.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Mask"></g>
+                    <g id="Blue-Aux-A" opacity="0.15" mask="url(#mask-2)">
+                        <g transform="translate(-3.000000, -25.000000)">
+                            <g id="Group-3" stroke-width="1" fill="none" transform="translate(0.000000, 57.000000)">
+                                <mask id="mask-4" fill="white">
+                                    <use xlink:href="#path-3"></use>
+                                </mask>
+                                <g id="Clip-2"></g>
+                                <path d="M1445.41715,0.147098773 L1445.40902,148.34205 C1429.0581,146.922512 754.287962,84.0059431 1.29197463,218.764226 L0.11301729,218.960024 L0.0804943287,218.960024 L0.00731766624,218.976341 C766.622295,21.2035904 1428.48894,0.644753165 1445.41715,0.147098773" id="Fill-1" fill="#6699CC" mask="url(#mask-4)"></path>
+                            </g>
+                            <g id="Group-6" stroke-width="1" fill="none">
+                                <mask id="mask-6" fill="white">
+                                    <use xlink:href="#path-5"></use>
+                                </mask>
+                                <g id="Clip-5"></g>
+                                <path d="M0.00325249264,276.001631 L0.00325249264,0.744040336 C120.028362,5.04990968 702.037526,-0.976676389 1440.91441,204.987407 C1378.94629,199.955738 728.244485,142.650162 1.28798708,275.765134 C0.832638115,275.83853 0.466732693,275.92008 0.00325249264,276.001631" id="Fill-4" fill="#6699CC" mask="url(#mask-6)"></path>
+                            </g>
+                            <path d="M1441,203.891914 L1438.99145,203.72856 C1000.63165,169.203648 457.380032,195.77321 1.29295283,274.795807 L1.20350327,274.812143 L1.12218548,274.82031 L1.04086769,274.836646 L0.959549902,274.852981 L0.113844904,274.983665 L0.0813177883,274.983665 L0,275 C368.483426,179.838007 712.726019,125.669752 972.845361,95 C1118.82705,122.378165 1275.98181,157.826028 1441,203.891914" id="Fill-7" fill="#356390"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

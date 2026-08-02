@@ -1,0 +1,374 @@
+/* Service Page Styles */
+:root {
+    --service-blue: #1e272e;
+    --service-light-blue: #e5f0f9;
+    --service-dark: #fafafa;
+    --service-gray: #f5f5f5;
+    --service-border: #e0e0e0;
+}
+
+
+
+/* Hero Section */
+.service-banner {
+    background-color: var(--service-blue);
+    padding: 80px 0 60px;
+    text-align: left;
+    position: relative;
+    color: white;
+    height: 350px;
+}
+
+.service-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 350px;
+    background-image: url('../assets/images/banner service.webp');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    z-index: 0;
+}
+
+.service-banner .container {
+    position: relative;
+    z-index: 1;
+}
+
+.service-banner img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+    height: 280px;
+}
+
+.page-title {
+    font-size: 42px;
+    color: white;
+    margin: 0;
+    font-weight: 500;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Tab Navigation */
+.page-tabs {
+    background-color: var(--service-gray);
+    border-bottom: 1px solid var(--service-border);
+    position: sticky;
+    top: 80px;
+    z-index: 90;
+}
+
+.tab-links {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.tab-links li {
+    margin-right: 40px;
+}
+
+.tab-links a {
+    display: block;
+    padding: 15px 0;
+    color: var(--text-dark);
+    font-weight: 500;
+    position: relative;
+    text-decoration: none;
+}
+
+.tab-links a:hover {
+    color: var(--service-blue);
+}
+
+.tab-links a.active {
+    color: var(--service-blue);
+}
+
+.tab-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--service-blue);
+}
+
+/* Service Sections */
+.service-section {
+    padding: 70px 0;
+    border-bottom: 1px solid var(--service-border);
+}
+
+.section-title {
+    font-size: 32px;
+    color:  #1e272e;
+    margin-bottom: 30px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.section-content {
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.section-content p {
+    margin-bottom: 20px;
+    color: var(--text-dark);
+    font-size: 16px;
+}
+
+/* Core Advantage Section with Dark Background */
+.core-advantage {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: bold;
+    font-size: 28px;
+    color: #222;
+  }
+
+  .advantage-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .advantage-box {
+    background-color: #1d1d1d;
+    color: white;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    cursor: default;
+    overflow: hidden;
+  }
+
+  .icon-wrapper {
+    background-color: #292929;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .icon-wrapper svg {
+    width: 40px;
+    height: 40px;
+    fill: white;
+  }
+
+  .advantage-text {
+    padding-left: 20px;
+    font-size: 18px;
+    font-weight: normal;
+    flex: 1;
+    text-align: left;
+  }
+
+.card-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--service-blue);
+    border-radius: 50%;
+}
+
+.card-icon img {
+    max-width: 60%;
+    max-height: 60%;
+    filter: brightness(0) invert(1);
+}
+
+.advantage-card h4 {
+    font-size: 22px;
+    color: white;
+    margin: 0 0 15px 0;
+    font-weight: 500;
+}
+
+.advantage-card p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Products Section */
+#products {
+    background-color: var(--service-gray);
+    padding: 80px 0;
+}
+
+/* Service Products */
+.service-products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.product-card {
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.product-img {
+    height: 400px;
+    width: 600px;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-img img {
+    transform: scale(1.05);
+}
+
+.product-content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card h3 {
+    color: var(--service-blue);
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.product-card p {
+    color: var(--text-light);
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0 0 20px 0;
+    flex-grow: 1;
+}
+
+.product-card .btn-more {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: transparent;
+    color: var(--service-blue);
+    border: 1px solid var(--service-blue);
+    border-radius: 4px;
+    font-size: 14px;
+    align-self: flex-start;
+    transition: all 0.3s ease;
+}
+
+.product-card:hover .btn-more {
+    background-color: var(--service-blue);
+    color: white;
+}
+
+/* Make nav links with active class appear highlighted */
+.nav-links > li > a.active {
+    color: var(--service-blue);
+}
+
+
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .service-products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .advantage-card {
+        min-width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .service-banner {
+        padding: 60px 0 40px;
+    }
+    
+    .page-title {
+        font-size: 36px;
+    }
+    
+    .service-products {
+        grid-template-columns: 1fr;
+    }
+    
+    .tab-links li {
+        margin-right: 20px;
+    }
+    
+    .tab-links a {
+        padding: 12px 0;
+        font-size: 14px;
+    }
+    
+    .service-section {
+        padding: 50px 0;
+    }
+    
+    .section-title {
+        font-size: 28px;
+    }
+    
+    .advantage-card {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 576px) {
+    .service-banner {
+        padding: 40px 0 30px;
+    }
+    
+    .page-title {
+        font-size: 30px;
+    }
+    
+    .tab-links {
+        overflow-x: auto;
+        padding-bottom: 5px;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .advantage-card {
+        padding: 20px;
+        min-width: 100%;
+    }
+    
+    .product-img {
+        height: 180px;
+    }
+} 
