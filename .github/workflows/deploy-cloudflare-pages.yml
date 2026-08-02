@@ -13,7 +13,6 @@ jobs:
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-      PROJECT_NAME: hytera-bd
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -25,6 +24,15 @@ jobs:
 
       - name: Install Wrangler
         run: npm install -g wrangler
+
+      - name: Prepare deployment target
+        run: |
+          if [ -n "${{ secrets.CLOUDFLARE_PAGES_PROJECT_NAME }}" ]; then
+            echo "PROJECT_NAME=${{ secrets.CLOUDFLARE_PAGES_PROJECT_NAME }}" >> "$GITHUB_ENV"
+          else
+            echo "PROJECT_NAME=hytera-bd" >> "$GITHUB_ENV"
+          fi
+          echo "Deploying to Cloudflare Pages project: $(printenv PROJECT_NAME)"
 
       - name: Deploy to Cloudflare Pages
         run: wrangler pages deploy . --project-name "$PROJECT_NAME" --branch "${{ github.ref_name }}"
